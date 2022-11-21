@@ -33,14 +33,14 @@ class MedidaMujer extends Model {
       as: "medidasParteSuperior",
       foreignKey: "medidaMujerId",
     });
-    this.belongsTo(models.Client, { as: "cliente" });
+    this.belongsTo(models.Cliente, { as: "cliente" });
   }
   static config(sequelize) {
     return {
       sequelize,
-      nameTable: MEDIDA_MUJER_TABLE,
+      tableName: MEDIDA_MUJER_TABLE,
       modelName: "MedidaMujer",
-      timestamp: false,
+      timestamps: false,
     };
   }
 }

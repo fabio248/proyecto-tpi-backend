@@ -34,9 +34,9 @@ class MedidaHombre extends Model {
   static config(sequelize) {
     return {
       sequelize,
-      nameTable: MEDIDA_HOMBRE_TABLE,
+      tableName: MEDIDA_HOMBRE_TABLE,
       modelName: "MedidaHombre",
-      timestamp: false,
+      timestamps: false,
     };
   }
 }

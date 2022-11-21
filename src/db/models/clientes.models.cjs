@@ -54,14 +54,14 @@ class Cliente extends Model {
       as: "medidaHombre",
       foreignKey: "clienteId",
     });
-    this.hasMany(models.Task, { as: "trabajo", foreignKey: "clienteId" });
+    // this.hasMany(models.Task, { as: "trabajo", foreignKey: "clienteId" });
   }
   static config(sequelize) {
     return {
       sequelize,
-      nameTable: CLIENTE_TABLE,
+      tableName: CLIENTE_TABLE,
       modelName: "Cliente",
-      timestamp: false,
+      timestamps: false,
     };
   }
 }

@@ -37,15 +37,13 @@ const TaskSchema = {
 };
 
 class Task extends Model {
-  static associate() {
-    // this.belongsToMany(models.Cliente, { as: "cliente" });
-  }
+  static associate() {}
   static config(sequelize) {
     return {
       sequelize,
-      nameTable: TASK_TABLE,
-      modelName: "User",
-      timestamp: false,
+      tableName: TASK_TABLE,
+      modelName: "Task",
+      timestamps: false,
     };
   }
 }

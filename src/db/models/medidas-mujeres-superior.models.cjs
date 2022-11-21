@@ -76,9 +76,9 @@ class MedidaMujerSuperior extends Model {
   static config(sequelize) {
     return {
       sequelize,
-      nameTable: MEDIDA_MUJER_SUPERIOR_TABLE,
+      tableName: MEDIDA_MUJER_SUPERIOR_TABLE,
       modelName: "MedidaMujerSuperior",
-      timestamp: false,
+      timestamps: false,
     };
   }
 }

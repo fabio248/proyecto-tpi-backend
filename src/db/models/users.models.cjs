@@ -20,7 +20,7 @@ const UserSchema = {
   role: {
     allowNull: false,
     type: DataTypes.STRING,
-    defaultValue: "admin",
+    defaultValue: "ADMIN",
   },
   name: {
     allowNull: false,
@@ -42,9 +42,9 @@ class User extends Model {
   static config(sequelize) {
     return {
       sequelize,
-      nameTable: USER_TABLE,
+      tableName: USER_TABLE,
       modelName: "User",
-      timestamp: false,
+      timestamps: false,
     };
   }
 }

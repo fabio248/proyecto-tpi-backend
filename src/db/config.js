@@ -10,13 +10,5 @@ dbUrl = `postgres://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${conf
 
 export default {
   development: { url: dbUrl, dialect: 'postgres' },
-  production: {
-    url: dbUrl,
-    dialect: 'postgres',
-    dialectOptions: {
-      ssl: {
-        rejectUnauthorized: false,
-      },
-    },
-  },
+  production: { url: dbUrl, dialect: 'postgres' },
 };

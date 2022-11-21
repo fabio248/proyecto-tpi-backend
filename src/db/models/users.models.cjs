@@ -1,0 +1,52 @@
+const { Sequelize, DataTypes, Model } = require("sequelize");
+
+const USER_TABLE = "users";
+
+const UserSchema = {
+  id: {
+    allowNull: false,
+    type: DataTypes.UUID,
+    primaryKey: true,
+  },
+  email: {
+    allowNull: false,
+    unique: true,
+    type: DataTypes.STRING,
+  },
+  password: {
+    allowNull: false,
+    type: DataTypes.STRING,
+  },
+  role: {
+    allowNull: false,
+    type: DataTypes.STRING,
+    defaultValue: "admin",
+  },
+  name: {
+    allowNull: false,
+    type: DataTypes.STRING,
+  },
+  lastName: {
+    allowNull: false,
+    type: DataTypes.STRING,
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    field: "create_at",
+    defaultValue: Sequelize.NOW,
+  },
+};
+
+class User extends Model {
+  static associate() {}
+  static config(sequelize) {
+    return {
+      sequelize,
+      nameTable: USER_TABLE,
+      modelName: "User",
+      timestamp: false,
+    };
+  }
+}
+
+module.exports = { USER_TABLE, User, UserSchema };

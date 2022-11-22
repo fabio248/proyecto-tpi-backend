@@ -10,6 +10,8 @@ import {
 const app = express();
 app.use(express.json());
 
+//Ejecutando archivos de autentificacion
+import './utils/auth/index.js';
 app.get('/', (req, res) => {
   res.send('Servidor de express');
 });

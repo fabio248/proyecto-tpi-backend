@@ -12,6 +12,8 @@ const config = {
   dbHost: process.env.DB_HOST,
   dbPort: process.env.DB_PORT,
   dbUrl: process.env.DB_URL,
+  apiKey: process.env.API_KEY,
+  secretJwt: process.env.SECRET_JWT,
 };
 
 export default config;

@@ -1,8 +1,9 @@
 import express from 'express';
 import passport from 'passport';
-import { checkApiKey } from '../middlewares/auth.handle.js';
+import { checkApiKey, checkRoles } from '../middlewares/auth.handle.js';
 import userRouter from './users.routes.js';
 import authRouter from './auth.routes.js';
+
 function routerAPI(app) {
   const router = express.Router();
   app.use('/api/v1', checkApiKey, router);
@@ -10,6 +11,7 @@ function routerAPI(app) {
   router.use(
     '/users',
     passport.authenticate('jwt', { session: false }),
+    checkRoles('ADMIN'),
     userRouter
   );
 }

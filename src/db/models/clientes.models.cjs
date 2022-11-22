@@ -37,6 +37,10 @@ const ClientSchema = {
     allowNull: true,
     type: DataTypes.STRING,
   },
+  gender: {
+    allowNull: false,
+    type: DataTypes.STRING,
+  },
   createdAt: {
     type: DataTypes.DATE,
     field: "create_at",
@@ -46,15 +50,23 @@ const ClientSchema = {
 
 class Cliente extends Model {
   static associate(models) {
-    this.hasOne(models.MedidaMujer, {
-      as: "medidaMujer",
+    this.hasOne(models.MedidaMujerSuperior, {
+      as: "medidasParteSuperiorMujer",
       foreignKey: "clienteId",
     });
-    this.hasOne(models.MedidaHombre, {
-      as: "medidaHombre",
+    this.hasOne(models.MedidaMujerInferior, {
+      as: "medidasParteInferiorMujer",
       foreignKey: "clienteId",
     });
-    // this.hasMany(models.Task, { as: "trabajo", foreignKey: "clienteId" });
+    this.hasOne(models.MedidaHombreSuperior, {
+      as: "medidaParteSuperiorHombre",
+      foreignKey: "clienteId",
+    });
+    this.hasOne(models.MedidaHombreInferior, {
+      as: "medidaParteInferiorHombre",
+      foreignKey: "clienteId",
+    });
+    this.hasMany(models.Task, { as: "trabajo", foreignKey: "clienteId" });
   }
   static config(sequelize) {
     return {

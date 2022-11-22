@@ -1,63 +1,46 @@
-const { DataTypes, Model } = require("sequelize");
+const { Sequelize, DataTypes, Model } = require("sequelize");
 const { CLIENTE_TABLE } = require("./clientes.models.cjs");
 
-const MEDIDA_MUJER_SUPERIOR_TABLE = "medidas_mujeres_superior";
+const MEDIDA_MUJER_INFERIOR_TABLE = "medidas_mujeres_inferior";
 
-const MedidaMujerSuperiorSchema = {
+const MedidaMujerInferiorSchema = {
   id: {
     allowNull: false,
     type: DataTypes.UUID,
     primaryKey: true,
   },
-  largoBlusa: {
+  createdAt: {
+    type: DataTypes.DATE,
+    field: "create_at",
+    defaultValue: Sequelize.NOW,
+  },
+  largoPantalon: {
     allowNull: true,
     type: DataTypes.STRING,
-    field: "largo_blusa",
+    field: "largo_pantalon",
   },
-  escote: {
-    allowNull: true,
-    type: DataTypes.STRING,
-  },
-  hombro: {
-    allowNull: true,
-    type: DataTypes.STRING,
-  },
-  talle: {
-    allowNull: true,
-    type: DataTypes.STRING,
-  },
-  busto: {
-    allowNull: true,
-    type: DataTypes.STRING,
-  },
-  sisa: {
-    allowNull: true,
-    type: DataTypes.STRING,
-  },
-  manga: {
-    allowNull: true,
-    type: DataTypes.STRING,
-  },
-  costado: {
-    allowNull: true,
-    type: DataTypes.STRING,
-  },
-  espalda: {
-    allowNull: true,
-    type: DataTypes.STRING,
-  },
-  primerBoton: {
-    allowNull: true,
-    type: DataTypes.STRING,
-    field: "primer_boton",
-  },
-  cintura: {
+  tiro: {
     allowNull: true,
     type: DataTypes.STRING,
   },
   cadera: {
     allowNull: true,
     type: DataTypes.STRING,
+  },
+  anchoRodilla: {
+    allowNull: true,
+    type: DataTypes.STRING,
+    field: "ancho_rodilla",
+  },
+  anchoTobillo: {
+    allowNull: true,
+    type: DataTypes.STRING,
+    field: "ancho_tobillo",
+  },
+  cinturaARodilla: {
+    allowNull: true,
+    type: DataTypes.STRING,
+    field: "cintura_a_rodilla",
   },
   clienteId: {
     allowNull: true,
@@ -72,22 +55,22 @@ const MedidaMujerSuperiorSchema = {
   },
 };
 
-class MedidaMujerSuperior extends Model {
+class MedidaMujerInferior extends Model {
   static associate(models) {
     this.belongsTo(models.Cliente, { as: "cliente" });
   }
   static config(sequelize) {
     return {
       sequelize,
-      tableName: MEDIDA_MUJER_SUPERIOR_TABLE,
-      modelName: "MedidaMujerSuperior",
+      tableName: MEDIDA_MUJER_INFERIOR_TABLE,
+      modelName: "MedidaMujerInferior",
       timestamps: false,
     };
   }
 }
 
 module.exports = {
-  MedidaMujerSuperiorSchema,
-  MedidaMujerSuperior,
-  MEDIDA_MUJER_SUPERIOR_TABLE,
+  MedidaMujerInferiorSchema,
+  MedidaMujerInferior,
+  MEDIDA_MUJER_INFERIOR_TABLE,
 };

@@ -33,7 +33,7 @@ const MedidaHombreSuperiorSchema = {
     type: DataTypes.STRING,
     field: "frente_pecho",
   },
-  talleEspada: {
+  talleEspalda: {
     allowNull: true,
     type: DataTypes.STRING,
     field: "talle_espalda",
@@ -58,7 +58,7 @@ const MedidaHombreSuperiorSchema = {
     type: DataTypes.STRING,
     field: "largo_manga",
   },
-  HombreACodo: {
+  hombroACodo: {
     allowNull: true,
     type: DataTypes.STRING,
     field: "hombro_a_codo",

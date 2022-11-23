@@ -19,9 +19,9 @@ app.get('/', (req, res) => {
 routerAPI(app);
 //Middleware for handle errors
 app.use(logErrors);
+app.use(sqlErrorHandler);
 app.use(boomErrorHandler);
 app.use(errorHandler);
-app.use(sqlErrorHandler);
 
 app.listen(config.port, () => {
   console.log(`Escuchando en el puerto ${config.port}`);

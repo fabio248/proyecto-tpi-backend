@@ -21,7 +21,12 @@ const createUser = async (req, res, next) => {
   try {
     const id = uuidv4();
     const data = req.body;
-    const newUser = await service.create({ ...data, id });
+    const { role } = data;
+    const newUser = await service.create({
+      ...data,
+      id,
+      role: role.toUpperCase(),
+    });
     return res.status(201).json({ message: 'Created user', newUser });
   } catch (error) {
     next(error);

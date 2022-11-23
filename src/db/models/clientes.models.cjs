@@ -17,7 +17,7 @@ const ClientSchema = {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  fistName: {
+  firstName: {
     allowNull: false,
     type: DataTypes.STRING,
   },
@@ -25,7 +25,7 @@ const ClientSchema = {
     allowNull: true,
     type: DataTypes.STRING,
   },
-  fistLastName: {
+  firstLastName: {
     allowNull: false,
     type: DataTypes.STRING,
   },

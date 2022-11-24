@@ -401,11 +401,11 @@ module.exports = {
 
   async down(queryInterface) {
     await queryInterface.dropTable(USER_TABLE);
-    await queryInterface.dropTable(CLIENTE_TABLE);
     await queryInterface.dropTable(TASK_TABLE);
     await queryInterface.dropTable(MEDIDA_HOMBRE_INFERIOR_TABLE);
     await queryInterface.dropTable(MEDIDA_HOMBRE_SUPERIOR_TABLE);
     await queryInterface.dropTable(MEDIDA_MUJER_INFERIOR_TABLE);
     await queryInterface.dropTable(MEDIDA_MUJER_SUPERIOR_TABLE);
+    await queryInterface.dropTable(CLIENTE_TABLE);
   },
 };

@@ -8,6 +8,7 @@ import hombreInferiorRouter from './hombre-inferior.routes.js';
 import hombreSuperiorRouter from './hombre-superior.routes.js';
 import mujerInferiorRouter from './mujer-inferior.routes.js';
 import mujerSuperiorRouter from './mujer-superior.routes.js';
+import taskRouter from './task.routes.js';
 function routerAPI(app) {
   const router = express.Router();
   app.use('/api/v1', checkApiKey, router);
@@ -47,6 +48,12 @@ function routerAPI(app) {
     passport.authenticate('jwt', { session: false }),
     checkRoles('ADMIN', 'EMPLOYEE'),
     mujerSuperiorRouter
+  );
+  router.use(
+    '/tasks',
+    passport.authenticate('jwt', { session: false }),
+    checkRoles('ADMIN', 'EMPLOYEE'),
+    taskRouter
   );
 }
 

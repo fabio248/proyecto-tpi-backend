@@ -30,6 +30,11 @@ const UserSchema = {
     allowNull: false,
     type: DataTypes.STRING,
   },
+  recoveryToken: {
+    allowNull: true,
+    type: DataTypes.UUID,
+    field: "recovery_token",
+  },
   createdAt: {
     type: DataTypes.DATE,
     field: "create_at",

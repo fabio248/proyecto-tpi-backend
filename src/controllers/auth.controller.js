@@ -10,5 +10,22 @@ const login = (req, res, next) => {
     next(error);
   }
 };
-
-export { login };
+const recovery = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    const rta = await service.sendRecoveryPassword(email);
+    res.json(rta);
+  } catch (error) {
+    next(error);
+  }
+};
+const changePassword = async (req, res, next) => {
+  try {
+    const { token, newPassword } = req.body;
+    const rta = await service.changePassword(token, newPassword);
+    res.json(rta);
+  } catch (error) {
+    next(error);
+  }
+};
+export { login, recovery, changePassword };

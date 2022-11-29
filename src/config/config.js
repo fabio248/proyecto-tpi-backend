@@ -14,6 +14,9 @@ const config = {
   dbUrl: process.env.DB_URL,
   apiKey: process.env.API_KEY,
   secretJwt: process.env.SECRET_JWT,
+  smtpPassword: process.env.SMPT_PASSWORD,
+  smtpEmail: process.env.SMPT_EMAIL,
+  urlFronted: process.env.URL_FRONTEND,
 };
 
 export default config;

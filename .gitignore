@@ -141,3 +141,5 @@ dist
 postgres_data
 database.txt
 hash.js
+.vscode
+launch.json

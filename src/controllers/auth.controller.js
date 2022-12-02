@@ -21,7 +21,7 @@ const recovery = async (req, res, next) => {
 };
 const changePassword = async (req, res, next) => {
   try {
-    const { token, newPassword } = req.body;
+    const { newPassword, token } = req.body;
     const rta = await service.changePassword(token, newPassword);
     res.json(rta);
   } catch (error) {

@@ -6,12 +6,12 @@ class MujerInferiorService {
   constructor() {}
 
   async find() {
-    const medidas = await models.MedidaMujerInferior.findAll();
+    const medidas = await models.MedidaHombreInferior.findAll();
     return medidas;
   }
 
   async findOne(id) {
-    const medida = await models.MedidaMujerInferior.findByPk(id, {
+    const medida = await models.MedidaHombreInferior.findByPk(id, {
       include: ['cliente'],
     });
     if (!medida) throw boom.notFound('Medida not found');
@@ -19,7 +19,7 @@ class MujerInferiorService {
   }
 
   async create(data) {
-    const medida = await models.MedidaMujerInferior.create(data);
+    const medida = await models.MedidaHombreInferior.create(data);
     return medida;
   }
   async update(id, changes) {
